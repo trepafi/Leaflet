@@ -625,7 +625,7 @@ describe("Map", function () {
 		});
 
 		it('zoomIn zooms by 1 zoom level by default', function (done) {
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(11);
 				expect(map.getCenter()).to.eql(center);
 				done();
@@ -634,7 +634,7 @@ describe("Map", function () {
 		});
 
 		it('zoomOut zooms by 1 zoom level by default', function (done) {
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(9);
 				expect(map.getCenter()).to.eql(center);
 				done();
@@ -646,7 +646,7 @@ describe("Map", function () {
 			L.Browser.any3d = false;
 			map.options.zoomSnap = 0.25;
 			map.options.zoomDelta = 0.25;
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(11);
 				expect(map.getCenter()).to.eql(center);
 				done();
@@ -659,7 +659,7 @@ describe("Map", function () {
 			map.options.zoomSnap = 0.25;
 			map.options.zoomDelta = 0.25;
 			map.setView(center, 10);
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(10.25);
 				expect(map.getCenter()).to.eql(center);
 				done();
@@ -672,7 +672,7 @@ describe("Map", function () {
 			map.options.zoomSnap = 0.25;
 			map.options.zoomDelta = 0.25;
 			map.setView(center, 10);
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(9.75);
 				expect(map.getCenter()).to.eql(center);
 				done();
@@ -683,7 +683,7 @@ describe("Map", function () {
 		it('zoomIn snaps to zoomSnap on any3d browsers', function (done) {
 			map.options.zoomSnap = 0.25;
 			map.setView(center, 10);
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(10.25);
 				expect(map.getCenter()).to.eql(center);
 				done();
@@ -695,7 +695,7 @@ describe("Map", function () {
 		it('zoomOut snaps to zoomSnap on any3d browsers', function (done) {
 			map.options.zoomSnap = 0.25;
 			map.setView(center, 10);
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(9.75);
 				expect(map.getCenter()).to.eql(center);
 				done();
@@ -718,12 +718,12 @@ describe("Map", function () {
 			map.setView(center, 10);
 		});
 
-		afterEach(function() {
+		afterEach(function () {
 			document.body.removeChild(map.getContainer());
 		});
 
 		it('Snaps zoom level to integer by default', function (done) {
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(2);
 				expect(map.getCenter().equals(boundsCenter, 0.05)).to.eql(true);
 				done();
@@ -734,7 +734,7 @@ describe("Map", function () {
 		it('Snaps zoom to zoomSnap on any3d browsers', function (done) {
 			map.options.zoomSnap = 0.25;
 			L.Browser.any3d = true;
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(2.75);
 				expect(map.getCenter().equals(boundsCenter, 0.05)).to.eql(true);
 				done();
@@ -745,7 +745,7 @@ describe("Map", function () {
 		it('Ignores zoomSnap on non-any3d browsers', function (done) {
 			map.options.zoomSnap = 0.25;
 			L.Browser.any3d = false;
-			map.once('zoomend', function() {
+			map.once('zoomend', function () {
 				expect(map.getZoom()).to.eql(2);
 				expect(map.getCenter().equals(boundsCenter, 0.05)).to.eql(true);
 				done();

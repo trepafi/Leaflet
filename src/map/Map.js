@@ -573,7 +573,7 @@ L.Map = L.Evented.extend({
 		return this.fire('moveend');
 	},
 
-	_stop: function() {
+	_stop: function () {
 		L.Util.cancelAnimFrame(this._flyToFrame);
 		if (this._panAnim) {
 			this._panAnim.stop();
