@@ -40,6 +40,10 @@ L.Map.include({
 	panBy: function (offset, options) {
 		offset = L.point(offset).round();
 		options = options || {};
+		this._animatingPan = true;
+		this.once('moveend', function () {
+			this._animatingPan = false;
+		});
 
 		if (!offset.x && !offset.y) {
 			return this.fire('moveend');

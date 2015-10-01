@@ -248,7 +248,7 @@ L.Popup = L.Layer.extend({
 	},
 
 	_adjustPan: function () {
-		if (!this.options.autoPan) { return; }
+		if (!this.options.autoPan || this._map._animatingPan) { return; }
 
 		var map = this._map,
 		    containerHeight = this._container.offsetHeight,
